@@ -1,1 +1,0 @@
-opencv_createsamples -vec traning.vec -info positive\desc.txt -bg neg_desc.txt -w 24 -h 24

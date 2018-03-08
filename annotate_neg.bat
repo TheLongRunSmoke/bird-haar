@@ -1,1 +1,0 @@
-opencv_annotation.exe --annotations=negative\desc.txt --images=negative\img\
