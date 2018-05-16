@@ -1,21 +1,34 @@
-# Размеченный набор данных для тренировки каскада Хаара
+# Р Р°Р·РјРµС‡РµРЅРЅС‹Р№ РЅР°Р±РѕСЂ РґР°РЅРЅС‹С… РґР»СЏ С‚СЂРµРЅРёСЂРѕРІРєРё РєР°СЃРєР°РґР° РҐР°Р°СЂР°
 
-### Использование
+РќР°Р·РЅР°С‡РµРЅРёРµ - Р±С‹СЃС‚СЂС‹Р№ РїРѕРёСЃРє РїС‚РёС† РЅР° СЃРЅРёРјРєРµ. Р”Рѕ 20 РєР°РґСЂРѕРІ РІ СЃРµРєСѓРЅРґСѓ РїСЂРё СЂР°Р·СЂРµС€РµРЅРёРё 640x480 РЅР° RPi3.
 
-1. Скачайте [последний релиз](https://github.com/TheLongRunSmoke/bird-haar/releases) тренированного каскада.
-2. Инициализируйте им CascadeClassifier.
+# РџСЂРёРјРµСЂС‹:
+Р’РёРґРµРѕ
+
+[![Р’РёРґРµРѕ](https://i.imgur.com/c7S0gsY.jpg)](https://www.youtube.com/watch?v=Owwb3AKKIiY "Birds tracking algorithm test
+")
+
+РњРЅРѕР¶РµСЃС‚РІРµРЅРЅРѕРµ СЂР°СЃРїРѕР·РЅР°РІР°РЅРёРµ
+![Р¤РѕС‚Рѕ](https://pp.userapi.com/c846123/v846123267/e8d7/809mp2ssOjQ.jpg)
+
+<a href="https://vk.com/mrworf_birdfeeder" target="_blank">Р•С‰С‘ РїСЂРёРјРµСЂС‹</a>
+
+### РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ
+
+1. РЎРєР°С‡Р°Р№С‚Рµ [РїРѕСЃР»РµРґРЅРёР№ СЂРµР»РёР·](https://github.com/TheLongRunSmoke/bird-haar/releases) С‚СЂРµРЅРёСЂРѕРІР°РЅРЅРѕРіРѕ РєР°СЃРєР°РґР°.
+2. РРЅРёС†РёР°Р»РёР·РёСЂСѓР№С‚Рµ РёРј CascadeClassifier.
 ```python
 cascade = cv2.CascadeClassifier('cascade_226.xml')
 ```
 
-### Создание каскада
+### РЎРѕР·РґР°РЅРёРµ РєР°СЃРєР°РґР°
 
-**1.** Сэмплирование
+**1.** РЎСЌРјРїР»РёСЂРѕРІР°РЅРёРµ
 ```
 opencv_createsamples -vec traning.vec -info positive\desc.txt -bg neg_desc.txt -w 24 -h 24
 ```
 
-**2.** Тренировка
+**2.** РўСЂРµРЅРёСЂРѕРІРєР°
 ```
 opencv_traincascade -data cascade -vec traning.vec -bg negative/desc.txt 
     -numPos 180 -numNeg 60 -numStages 30 -featureType HAAR -w 24 -h 24
@@ -23,16 +36,16 @@ opencv_traincascade -data cascade -vec traning.vec -bg negative/desc.txt
     -precalcValBufSize 1024 -precalcValBufSize 1024 -numThreads 4
 ```
 
-### Аннотация
+### РђРЅРЅРѕС‚Р°С†РёСЏ
 
-Вы можете аннотировать сет самостоятельно. Например, встроенными средствами OpenCV.
+Р’С‹ РјРѕР¶РµС‚Рµ Р°РЅРЅРѕС‚РёСЂРѕРІР°С‚СЊ СЃРµС‚ СЃР°РјРѕСЃС‚РѕСЏС‚РµР»СЊРЅРѕ. РќР°РїСЂРёРјРµСЂ, РІСЃС‚СЂРѕРµРЅРЅС‹РјРё СЃСЂРµРґСЃС‚РІР°РјРё OpenCV.
 ```
 opencv_annotation --annotations=positive\desc.txt --images=positive\img\
 opencv_annotation --annotations=negative\desc.txt --images=negative\img\
 ``` 
 
-### История изменений
+### РСЃС‚РѕСЂРёСЏ РёР·РјРµРЅРµРЅРёР№
 
-**08.03.2018** 226 положительных и 72 отрицательных семпла.
+**08.03.2018** 226 РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹С… Рё 72 РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹С… СЃРµРјРїР»Р°.
 
-**14.02.2018** 114 положительных и 20 отрицательных семплов.
+**14.02.2018** 114 РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹С… Рё 20 РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹С… СЃРµРјРїР»РѕРІ.
